@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 const DO = require("../Modules/DO");
 const DataObject = new DO();
-DataObject.init();
+DataObject.init({
+  path:"db/DO"
+});
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
