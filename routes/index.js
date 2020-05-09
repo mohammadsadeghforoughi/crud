@@ -1,13 +1,17 @@
 var express = require("express");
+var path = require("path");
+
 var router = express.Router();
 const DO = require("../Modules/DO");
 const DataObject = new DO();
+
 DataObject.init({
-  path:"db/DO"
+  path: "db/DO",
 });
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.sendFile(path.join(__dirname,'..', "views/index.html"));
 });
 
 router.post("/create", function (req, res, next) {
